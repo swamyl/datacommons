@@ -5,9 +5,13 @@ Created on Fri Jun  1 09:37:39 2018
 @author: swamyl
 """
 
+
+
 import xml.etree.ElementTree as ET
 import glob
 import json
+
+
 
 
 # read data_dict file
@@ -16,13 +20,13 @@ def data_dict(xml_file):
     subj_dd_tree = ET.parse(xml_file)
     subj_root = subj_dd_tree.getroot()
 
-    vars = []
+    data_dict = []
 
     # iterate over variables tag
     for child in subj_root:
         if child.tag == "variable":
             var = { "id": child.attrib['id'], "type": None }
-            vars.append(var)
+            data_dict.append(var)
             encoded_values = []
             #all the tags in xml
             for gchild in child:
@@ -50,7 +54,7 @@ def data_dict(xml_file):
 
 
     xml_data = {
-        "vars": vars
+        "data_dict": data_dict
         }
 
     return xml_data
@@ -59,8 +63,8 @@ filelist=glob.glob("C:/Users/swamyl/Desktop/decrypted_files%2Fphs000920.v2.pht00
 for name in filelist :
     print (name)
     my_dict=data_dict(name)   
-j_d=json.dumps(my_dict, indent=4, sort_keys=False)
-print(j_d)
+json_data=json.dumps(my_dict, indent=4, sort_keys=False)
+print(json_data)
 file = open(name+".json","w")
-file.write(j_d)
+file.write(json_data)
 file.close()
