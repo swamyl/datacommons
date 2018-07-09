@@ -49,11 +49,11 @@ def data_dict(xml_file):
                 print(var)
 
 
-    xml_info = {
+    xml_data = {
         "vars": vars
         }
 
-    return xml_info
+    return xml_data
 
 filelist=glob.glob("C:/Users/swamyl/Desktop/decrypted_files%2Fphs000920.v2.pht004897.v2.TOPMed_WGS_GALAII_Subject.data_dict.xml")
 for name in filelist :
