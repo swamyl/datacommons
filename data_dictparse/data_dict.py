@@ -50,18 +50,13 @@ def data_dict(xml_file):
 
             if var['type'] == "encoded values":
                 var['values'] = encoded_values
-                print(var)
-
-
-    xml_data = {
-        "data_dict": data_dict
-        }
-
+                #print(var)
+    xml_data = { "data_dict": data_dict }
     return xml_data
 
 filelist=glob.glob("C:/Users/swamyl/Desktop/decrypted_files%2Fphs000920.v2.pht004897.v2.TOPMed_WGS_GALAII_Subject.data_dict.xml")
 for name in filelist :
-    print (name)
+    #print (name)
     my_dict=data_dict(name)   
 json_data=json.dumps(my_dict, indent=4, sort_keys=False)
 print(json_data)
