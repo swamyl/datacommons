@@ -54,7 +54,7 @@ def data_dict(xml_file):
     xml_data = { "data_dict": data_dict }
     return xml_data
 
-filelist=glob.glob("C:/Users/swamyl/Desktop/decrypted_files%2Fphs000920.v2.pht004897.v2.TOPMed_WGS_GALAII_Subject.data_dict.xml")
+filelist=glob.glob("filepath")
 for name in filelist :
     #print (name)
     my_dict=data_dict(name)   
